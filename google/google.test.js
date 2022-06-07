@@ -41,9 +41,12 @@
 // });
 
 const { Builder, Capabilities, By } = require("selenium-webdriver");
+
 require("chromedriver");
 
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build();
+
+//------------------------------------------------------------------------------------------------------------------------
 
 beforeAll(async () => {
   await driver.get("https://www.google.com/");
@@ -52,6 +55,8 @@ beforeAll(async () => {
 afterAll(async () => {
   await driver.quit();
 });
+
+//------------------------------------------------------------------------------------------------------------------------
 
 test("I can search Google", async () => {
   let searchBar = await driver.findElement(By.name("q"));
