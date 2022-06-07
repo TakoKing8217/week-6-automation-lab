@@ -15,7 +15,13 @@ afterAll(async () => {
 test("I can make a movie", async () => {
   let searchBar = await driver.findElement(By.xpath("//input"));
 
-  await searchBar.sendKeys("Speed Racer\n");
+  await searchBar.sendKeys("Speed Racer");
+
+  let addButton = await driver.findElement(By.xpath("//form/button"));
+
+  await driver.sleep(2000);
+
+  await addButton.click();
 
   await driver.sleep(2000);
 
@@ -23,9 +29,7 @@ test("I can make a movie", async () => {
 
   await strikeThrough.click();
 
-  let theAside = await driver.findElement(By.xpath("//aside"))
-
-  
+  let theAside = await driver.findElement(By.xpath("//aside"));
 
   await driver.sleep(2000);
 
